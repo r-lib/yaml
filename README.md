@@ -2,9 +2,11 @@
 R YAML package
 ==============
 
-[![](https://cranlogs.r-pkg.org/badges/yaml)](https://cran.r-project.org/package=yaml)
-[![R-CMD-check](https://github.com/vubiostat/r-yaml/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vubiostat/r-yaml/actions/workflows/R-CMD-check.yaml)
-
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/r-lib/r-yaml/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/r-yaml/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/r-yaml/graph/badge.svg)](https://app.codecov.io/gh/r-lib/r-yaml)
+<!-- badges: end -->
+  
 The R [YAML](http://yaml.org) package implements the
 [libyaml](https://pyyaml.org/wiki/LibYAML) YAML parser and emitter for R.
 
@@ -499,4 +501,3 @@ The `VERSION` file is used to track the current version of the package.
 Warnings are displayed if the `DESCRIPTION` and `CHANGELOG` files are not
 properly updated when creating a tarball. This is to help prevent problems
 during the CRAN submission process.
-

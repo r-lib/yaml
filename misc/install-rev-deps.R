@@ -5,8 +5,9 @@ library(yaml, lib.loc = lib.loc)
 options(repos = 'https://cran.r-project.org')
 
 # many reverse dependencies depend on bioconductor packages
-if (!requireNamespace("BiocManager"))
+if (!requireNamespace("BiocManager")) {
   install.packages("BiocManager")
+}
 
 all_cran <- sort(available.packages()[, "Package"])
 all_bioc <- sort(BiocManager::available())
@@ -23,12 +24,26 @@ while (length(pkgs) > 0) {
   bioc <- c(bioc, intersect(all_bioc, non_cran))
   unknown <- setdiff(non_cran, all_bioc)
   if (length(unknown) > 0) {
-    cat("unknown (probably base packages): ", paste(unknown, collapse=", "), "\n", sep="")
+    cat(
+      "unknown (probably base packages): ",
+      paste(unknown, collapse = ", "),
+      "\n",
+      sep = ""
+    )
   }
 
   deps <- unique(sort(unlist(tools::package_dependencies(cran))))
   pkgs <- unique(sort(setdiff(deps, checked)))
-  cat("checked: ", length(checked), " pkgs: ", length(pkgs), " bioc: ", length(bioc), "\n", sep="")
+  cat(
+    "checked: ",
+    length(checked),
+    " pkgs: ",
+    length(pkgs),
+    " bioc: ",
+    length(bioc),
+    "\n",
+    sep = ""
+  )
 }
 
 if (length(bioc) > 0) {
