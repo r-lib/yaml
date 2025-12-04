@@ -7,16 +7,16 @@
 write_yaml(x, file, fileEncoding = "UTF-8", ...)
 }
 \arguments{
-\item{x}{the object to be converted}
+\item{x}{The object to be converted.}
 
-\item{file}{either a character string naming a file or a \link{connection}
-open for writing}
+\item{file}{Either a character string naming a file or a \link{connection}
+open for writing.}
 
-\item{fileEncoding}{character string: if non-empty declares the encoding to
-be used on a file (not a connection) so the character data can be re-encoded
-as they are written.  See \code{\link[=file]{file()}}.}
+\item{fileEncoding}{Character string: if non-empty declares the encoding to
+be used on a file (not a connection) so the character data can be
+re-encoded as they are written. See \code{\link[=file]{file()}}.}
 
-\item{\dots}{arguments to \code{\link[=as.yaml]{as.yaml()}}}
+\item{\dots}{Arguments to \code{\link[=as.yaml]{as.yaml()}}.}
 }
 \description{
 Write the YAML representation of an R object to a file

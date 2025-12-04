@@ -14,24 +14,24 @@ read_yaml(
 )
 }
 \arguments{
-\item{file}{either a character string naming a file or a \link{connection}
-open for writing}
+\item{file}{Either a character string naming a file or a \link{connection}
+open for reading.}
 
-\item{fileEncoding}{character string: if non-empty declares the encoding
+\item{fileEncoding}{Character string: if non-empty declares the encoding
 used on a file (not a connection) so the character data can be re-encoded.
 See \code{\link[=file]{file()}}.}
 
-\item{text}{character string: if \code{file} is not supplied and this is,
+\item{text}{Character string: if \code{file} is not supplied and this is,
 then data are read from the value of \code{text} via a text connection.
-Notice that a literal string can be used to include (small) data sets within
-R code.}
+Notice that a literal string can be used to include (small) data sets
+within R code.}
 
-\item{error.label}{a label to prepend to error messages (see Details).}
+\item{error.label}{A label to prepend to error messages (see Details).}
 
-\item{readLines.warn}{logical (default:TRUE) suppress warnings from
-readLines used inside read_yaml}
+\item{readLines.warn}{Logical (default: TRUE). Suppress warnings from
+readLines used inside read_yaml.}
 
-\item{...}{arguments to pass to \code{\link[=yaml.load]{yaml.load()}}}
+\item{...}{Arguments to pass to \code{\link[=yaml.load]{yaml.load()}}.}
 }
 \value{
 If the root YAML object is a map, a named list or list with an

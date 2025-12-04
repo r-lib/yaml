@@ -17,28 +17,28 @@ as.yaml(
 )
 }
 \arguments{
-\item{x}{the object to be converted}
+\item{x}{The object to be converted.}
 
-\item{line.sep}{the line separator character(s) to use}
+\item{line.sep}{The line separator character(s) to use.}
 
-\item{indent}{the number of spaces to use for indenting}
+\item{indent}{The number of spaces to use for indenting.}
 
-\item{omap}{determines whether or not to convert a list to a YAML omap; see
-Details}
+\item{omap}{Determines whether or not to convert a list to a YAML omap; see
+Details.}
 
-\item{column.major}{determines how to convert a data.frame; see Details}
+\item{column.major}{Determines how to convert a data.frame; see Details.}
 
-\item{unicode}{determines whether or not to allow unescaped unicode
-characters in output}
+\item{unicode}{Determines whether or not to allow unescaped unicode
+characters in output.}
 
-\item{precision}{number of significant digits to use when formatting numeric
-values}
+\item{precision}{Number of significant digits to use when formatting numeric
+values.}
 
-\item{indent.mapping.sequence}{determines whether or not to indent sequences
-in mapping context}
+\item{indent.mapping.sequence}{Determines whether or not to indent sequences
+in mapping context.}
 
-\item{handlers}{named list of custom handler functions for R objects; see
-Details}
+\item{handlers}{Named list of custom handler functions for R objects; see
+Details.}
 }
 \value{
 Returns a YAML string which can be loaded using

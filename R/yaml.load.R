@@ -31,7 +31,7 @@
 #' If missing, `yaml.load_file` will make an educated guess for the value
 #' of `error.label` by either using the specified filename (when
 #' `input` is a character vector) or using the description of the supplied
-#' connection object (via the `summary` function).  You can explicity set
+#' connection object (via the `summary` function).  You can explicitly set
 #' `error.label` to `NULL` if you don't want to use this
 #' functionality.
 #'

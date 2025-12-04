@@ -14,7 +14,7 @@
 #' default value of `error.label` will be `NULL`.
 #'
 #' @param file Either a character string naming a file or a [connection]
-#'   open for writing.
+#'   open for reading.
 #' @param fileEncoding Character string: if non-empty declares the encoding
 #'   used on a file (not a connection) so the character data can be re-encoded.
 #'   See [file()].

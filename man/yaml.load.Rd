@@ -18,32 +18,32 @@ yaml.load(
 yaml.load_file(input, error.label, readLines.warn = TRUE, ...)
 }
 \arguments{
-\item{string}{the YAML string to be parsed}
+\item{string}{The YAML string to be parsed.}
 
-\item{as.named.list}{whether or not to return a named list for maps (TRUE by
-default)}
+\item{as.named.list}{Whether or not to return a named list for maps (TRUE by
+default).}
 
-\item{handlers}{named list of custom handler functions for YAML types (see
-Details)}
+\item{handlers}{Named list of custom handler functions for YAML types (see
+Details).}
 
-\item{error.label}{a label to prepend to error messages (see Details)}
+\item{error.label}{A label to prepend to error messages (see Details).}
 
-\item{eval.expr}{whether or not to evaluate expressions found in the YAML
-document (see Details)}
+\item{eval.expr}{Whether or not to evaluate expressions found in the YAML
+document (see Details).}
 
-\item{merge.precedence}{behavior of precedence during map merges (see
-Details)}
+\item{merge.precedence}{Precedence behavior during map merges (see
+Details).}
 
-\item{merge.warning}{whether or not to warn about ignored key/value pairs
-during map merges}
+\item{merge.warning}{Whether or not to warn about ignored key/value pairs
+during map merges.}
 
-\item{input}{a filename or connection; if \code{input} is a filename, that
-file must be encoded in UTF-8}
+\item{input}{A filename or connection; if \code{input} is a filename, that
+file must be encoded in UTF-8.}
 
-\item{readLines.warn}{logical (default:TRUE) suppress warnings from
-readLines used inside read_yaml}
+\item{readLines.warn}{Logical (default: TRUE). Suppress warnings from
+readLines used inside read_yaml.}
 
-\item{...}{arguments to pass to yaml.load}
+\item{...}{Arguments to pass to yaml.load.}
 }
 \value{
 If the root YAML object is a map, a named list or list with an
@@ -84,7 +84,7 @@ either set the \code{error.label} argument explicitly or leave it missing.
 If missing, \code{yaml.load_file} will make an educated guess for the value
 of \code{error.label} by either using the specified filename (when
 \code{input} is a character vector) or using the description of the supplied
-connection object (via the \code{summary} function).  You can explicity set
+connection object (via the \code{summary} function).  You can explicitly set
 \code{error.label} to \code{NULL} if you don't want to use this
 functionality.
 

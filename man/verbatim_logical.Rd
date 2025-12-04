@@ -7,7 +7,7 @@
 verbatim_logical(x)
 }
 \arguments{
-\item{x}{logical vector to convert to \code{true}/\code{false}.}
+\item{x}{Logical vector to convert to \code{true}/\code{false}.}
 }
 \value{
 Returns a vector of strings of either \code{true} or \code{false} of
@@ -19,7 +19,7 @@ A yaml handler function that causes logical vectors to emit
 }
 \details{
 Pass this function to \code{\link[=as.yaml]{as.yaml()}} as part of the
-\code{handler} argument list like \code{list(logical = verbatim_logical)}.
+\code{handlers} argument list like \code{list(logical = verbatim_logical)}.
 }
 \examples{
 
