@@ -6,3 +6,4 @@
 ^VERSION$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^codecov\.yml$
