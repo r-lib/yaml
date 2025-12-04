@@ -1,33 +1,33 @@
-Package: yaml
 Type: Package
+Package: yaml
 Title: Methods to Convert R Data to YAML and Back
-Date: 2025-11-06
 Version: 2.3.11
-Suggests: RUnit
-Authors@R: c( person("Shawn",    "Garbett",  role = c("cre","ctb"),
-                     email   = "shawn.garbett@vumc.org",
-                     comment = c(ORCID="0000-0003-4079-5621")
-                     ),
-              person("Jeremy",  "Stephens", role = c("aut", "ctb")),
-              person("Kirill",  "Simonov",  role = "aut"),
-              person("Yihui",   "Xie",      role = "ctb",
-                     comment = c(ORCID="0000-0003-0645-5666")),
-              person("Zhuoer",  "Dong",     role = "ctb"),
-              person("Hadley",  "Wickham",  role = "ctb",
-                     comment = c(ORCID="0000-0003-4757-117X")),
-              person("Jeffrey", "Horner",   role = "ctb"),
-              person("reikoch",             role = "ctb"),
-              person("Will",    "Beasley",  role = "ctb",
-                     comment = c(ORCID="0000-0002-5613-5006")),
-              person("Brendan", "O'Connor", role = "ctb"),
-              person("Michael", "Quinn",    role = "ctb"),
-              person("Charlie", "Gao",      role = "ctb"),
-              person(c("Gregory", "R."), "Warnes", role = "ctb"),
-              person(c("Zhian", "N."),   "Kamvar", role = "ctb")
-             )
+Authors@R: c(
+    person("Shawn", "Garbett", , "shawn.garbett@vumc.org", role = c("cre", "ctb"),
+           comment = c(ORCID = "0000-0003-4079-5621")),
+    person("Jeremy", "Stephens", role = c("aut", "ctb")),
+    person("Kirill", "Simonov", role = "aut"),
+    person("Yihui", "Xie", role = "ctb",
+           comment = c(ORCID = "0000-0003-0645-5666")),
+    person("Zhuoer", "Dong", role = "ctb"),
+    person("Hadley", "Wickham", role = "ctb",
+           comment = c(ORCID = "0000-0003-4757-117X")),
+    person("Jeffrey", "Horner", role = "ctb"),
+    person("reikoch", role = "ctb"),
+    person("Will", "Beasley", role = "ctb",
+           comment = c(ORCID = "0000-0002-5613-5006")),
+    person("Brendan", "O'Connor", role = "ctb"),
+    person("Michael", "Quinn", role = "ctb"),
+    person("Charlie", "Gao", role = "ctb"),
+    person(c("Gregory", "R."), "Warnes", role = "ctb"),
+    person(c("Zhian", "N."), "Kamvar", role = "ctb")
+  )
 Maintainer: Shawn Garbett <shawn.garbett@vumc.org>
-License: BSD_3_clause + file LICENSE
 Description: Implements the 'libyaml' 'YAML' 1.1 parser and emitter
-  (<https://pyyaml.org/wiki/LibYAML>) for R.
-URL: https://github.com/vubiostat/r-yaml/
-BugReports: https://github.com/vubiostat/r-yaml/issues
+    (<https://pyyaml.org/wiki/LibYAML>) for R.
+License: BSD_3_clause + file LICENSE
+URL: https://github.com/r-lib/r-yaml/
+BugReports: https://github.com/lib/r-yaml/issues
+Suggests: 
+    RUnit
+Encoding: UTF-8
