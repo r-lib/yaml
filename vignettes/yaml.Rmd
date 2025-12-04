@@ -20,10 +20,11 @@ library(yaml)
 
 ## What is YAML?
 
-YAML is a human-readable markup language. With it, you can create easily
-readable documents that can be consumed by a variety of programming languages.
+YAML is a human-readable data serialization language. With it, you can create
+easily readable documents that can be consumed by a variety of programming
+languages.
 
-For example, here's a hash of baseball teams per league:
+For example, here's a map of baseball teams per league:
 
 ```yaml
 american:
