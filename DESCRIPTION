@@ -22,7 +22,6 @@ Authors@R: c(
     person(c("Gregory", "R."), "Warnes", role = "ctb"),
     person(c("Zhian", "N."), "Kamvar", role = "ctb")
   )
-Maintainer: Shawn Garbett <shawn.garbett@vumc.org>
 Description: Implements the 'libyaml' 'YAML' 1.1 parser and emitter
     (<https://pyyaml.org/wiki/LibYAML>) for R.
 License: BSD_3_clause + file LICENSE
