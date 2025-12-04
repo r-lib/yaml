@@ -23,16 +23,21 @@ test_that("reading from text works", {
 })
 
 test_that("reading a complicated document works", {
-  filename <- system.file(file.path("tests", "files", "test.yml"), package = "yaml")
+  filename <- system.file(
+    file.path("tests", "files", "test.yml"),
+    package = "yaml"
+  )
   x <- read_yaml(filename)
   expected <- list(
-    foo   = list(one = 1, two = 2),
-    bar   = list(three = 3, four = 4),
-    baz   = list(list(one = 1, two = 2), list(three = 3, four = 4)),
-    quux  = list(one = 1, two = 2, three = 3, four = 4, five = 5, six = 6),
+    foo = list(one = 1, two = 2),
+    bar = list(three = 3, four = 4),
+    baz = list(list(one = 1, two = 2), list(three = 3, four = 4)),
+    quux = list(one = 1, two = 2, three = 3, four = 4, five = 5, six = 6),
     corge = list(
       list(one = 1, two = 2, three = 3, four = 4, five = 5, six = 6),
-      list(xyzzy = list(one = 1, two = 2, three = 3, four = 4, five = 5, six = 6))
+      list(
+        xyzzy = list(one = 1, two = 2, three = 3, four = 4, five = 5, six = 6)
+      )
     )
   )
   expect_equal(x, expected)

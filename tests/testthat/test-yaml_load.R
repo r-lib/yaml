@@ -59,7 +59,10 @@ test_that("named maps are merged without warnings", {
 
   expected <- list(foo = "bar", quux = "quux", baz = "blah")
   expect_no_warning({
-    x <- yaml.load("foo: bar\n<<: [{quux: quux}, {foo: doo}, {foo: junk}, {baz: blah}, {baz: boo}]", TRUE)
+    x <- yaml.load(
+      "foo: bar\n<<: [{quux: quux}, {foo: doo}, {foo: junk}, {baz: blah}, {baz: boo}]",
+      TRUE
+    )
   })
   expect_equal(x, expected)
 
@@ -76,7 +79,11 @@ test_that("named maps are merged without warnings", {
 })
 
 test_that("named maps are merged with warnings", {
-  x <- yaml.load("foo: bar\n<<: {baz: boo}", as.named.list = TRUE, merge.warning = TRUE)
+  x <- yaml.load(
+    "foo: bar\n<<: {baz: boo}",
+    as.named.list = TRUE,
+    merge.warning = TRUE
+  )
   expect_equal(length(x), 2L)
   expect_equal(x$foo, "bar")
   expect_equal(x$baz, "boo")
@@ -85,7 +92,11 @@ test_that("named maps are merged with warnings", {
   expect_warning(
     expect_warning(
       expect_warning(
-        x <- yaml.load("foo: bar\n<<: [{quux: quux}, {foo: doo}, {foo: junk}, {baz: blah}, {baz: boo}]", as.named.list = TRUE, merge.warning = TRUE),
+        x <- yaml.load(
+          "foo: bar\n<<: [{quux: quux}, {foo: doo}, {foo: junk}, {baz: blah}, {baz: boo}]",
+          as.named.list = TRUE,
+          merge.warning = TRUE
+        ),
         "Duplicate map key ignored during merge: 'foo'"
       ),
       "Duplicate map key ignored during merge: 'foo'"
@@ -96,7 +107,11 @@ test_that("named maps are merged with warnings", {
 
   expect_warning(
     expect_warning(
-      x <- yaml.load("foo: bar\n<<: {foo: baz}\n<<: {foo: quux}", as.named.list = TRUE, merge.warning = TRUE),
+      x <- yaml.load(
+        "foo: bar\n<<: {foo: baz}\n<<: {foo: quux}",
+        as.named.list = TRUE,
+        merge.warning = TRUE
+      ),
       "Duplicate map key ignored during merge: 'foo'"
     ),
     "Duplicate map key ignored during merge: 'foo'"
@@ -105,7 +120,11 @@ test_that("named maps are merged with warnings", {
   expect_equal(x$foo, "bar")
 
   expect_warning(
-    x <- yaml.load("<<: {foo: bar}\nfoo: baz", as.named.list = TRUE, merge.warning = TRUE),
+    x <- yaml.load(
+      "<<: {foo: bar}\nfoo: baz",
+      as.named.list = TRUE,
+      merge.warning = TRUE
+    ),
     "Duplicate map key ignored after merge: 'foo'"
   )
   expect_equal(x, list(foo = "bar"))
@@ -119,7 +138,10 @@ test_that("unnamed maps are merged without warnings", {
   expect_equal(x[[2]], "boo")
 
   expect_no_warning({
-    x <- yaml.load("foo: bar\n<<: [{quux: quux}, {foo: doo}, {baz: boo}]", as.named.list = FALSE)
+    x <- yaml.load(
+      "foo: bar\n<<: [{quux: quux}, {foo: doo}, {baz: boo}]",
+      as.named.list = FALSE
+    )
   })
   expect_equal(length(x), 3L)
   expect_equal(attr(x, "keys"), list("foo", "quux", "baz"))
@@ -137,7 +159,11 @@ test_that("unnamed maps are merged without warnings", {
 
 test_that("unnamed maps are merged with warnings", {
   expect_no_warning({
-    x <- yaml.load("foo: bar\n<<: {baz: boo}", as.named.list = FALSE, merge.warning = TRUE)
+    x <- yaml.load(
+      "foo: bar\n<<: {baz: boo}",
+      as.named.list = FALSE,
+      merge.warning = TRUE
+    )
   })
   expect_equal(length(x), 2L)
   expect_equal(attr(x, "keys"), list("foo", "baz"))
@@ -145,7 +171,11 @@ test_that("unnamed maps are merged with warnings", {
   expect_equal(x[[2]], "boo")
 
   expect_warning(
-    x <- yaml.load("foo: bar\n<<: [{quux: quux}, {foo: doo}, {baz: boo}]", as.named.list = FALSE, merge.warning = TRUE),
+    x <- yaml.load(
+      "foo: bar\n<<: [{quux: quux}, {foo: doo}, {baz: boo}]",
+      as.named.list = FALSE,
+      merge.warning = TRUE
+    ),
     "Duplicate map key ignored during merge: 'foo'"
   )
   expect_equal(length(x), 3L)
@@ -155,7 +185,11 @@ test_that("unnamed maps are merged with warnings", {
   expect_equal(x[[3]], "boo")
 
   expect_warning(
-    x <- yaml.load("<<: {foo: bar}\nfoo: baz", as.named.list = FALSE, merge.warning = TRUE),
+    x <- yaml.load(
+      "<<: {foo: bar}\nfoo: baz",
+      as.named.list = FALSE,
+      merge.warning = TRUE
+    ),
     "Duplicate map key ignored after merge: 'foo'"
   )
   expect_equal(length(x), 1L)
@@ -255,32 +289,62 @@ test_that("bad anchors are handled", {
 })
 
 test_that("custom null handler is applied", {
-  x <- yaml.load("~", handlers = list("null" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "~",
+    handlers = list("null" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom binary handler is applied", {
-  x <- yaml.load("!binary 0b101011", handlers = list("binary" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "!binary 0b101011",
+    handlers = list("binary" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom bool yes handler is applied", {
-  x <- yaml.load("yes", handlers = list("bool#yes" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "yes",
+    handlers = list("bool#yes" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom bool no handler is applied", {
-  x <- yaml.load("no", handlers = list("bool#no" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "no",
+    handlers = list("bool#no" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom int hex handler is applied", {
-  x <- yaml.load("0xF", handlers = list("int#hex" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "0xF",
+    handlers = list("int#hex" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom int oct handler is applied", {
-  x <- yaml.load("015", handlers = list("int#oct" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "015",
+    handlers = list("int#oct" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
@@ -290,85 +354,174 @@ test_that("int base60 is not coerced by default", {
 })
 
 test_that("custom int base60 handler is applied", {
-  x <- yaml.load("1:20", handlers = list("int#base60" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "1:20",
+    handlers = list("int#base60" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom int handler is applied", {
-  x <- yaml.load("31337", handlers = list("int" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "31337",
+    handlers = list("int" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom float base60 handler is applied", {
-  x <- yaml.load("1:20.5", handlers = list("float#base60" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "1:20.5",
+    handlers = list("float#base60" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom float nan handler is applied", {
-  x <- yaml.load(".NaN", handlers = list("float#nan" = function(x) { "argh!" }))
+  x <- yaml.load(
+    ".NaN",
+    handlers = list("float#nan" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom float inf handler is applied", {
-  x <- yaml.load(".inf", handlers = list("float#inf" = function(x) { "argh!" }))
+  x <- yaml.load(
+    ".inf",
+    handlers = list("float#inf" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom float neginf handler is applied", {
-  x <- yaml.load("-.inf", handlers = list("float#neginf" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "-.inf",
+    handlers = list("float#neginf" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom float handler is applied", {
-  x <- yaml.load("123.456", handlers = list("float#fix" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "123.456",
+    handlers = list("float#fix" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom timestamp iso8601 handler is applied", {
-  x <- yaml.load("2001-12-14t21:59:43.10-05:00", handlers = list("timestamp#iso8601" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "2001-12-14t21:59:43.10-05:00",
+    handlers = list("timestamp#iso8601" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom timestamp ymd handler is applied", {
-  x <- yaml.load("2008-03-03", handlers = list("timestamp#ymd" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "2008-03-03",
+    handlers = list("timestamp#ymd" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("custom merge handler is not applied", {
   expect_warning(
-    x <- yaml.load("foo: &foo\n  bar: 123\n  baz: 456\n\njunk:\n  <<: *foo\n  bah: 789", handlers = list("merge" = function(x) { "argh!" })),
+    x <- yaml.load(
+      "foo: &foo\n  bar: 123\n  baz: 456\n\njunk:\n  <<: *foo\n  bah: 789",
+      handlers = list("merge" = function(x) {
+        "argh!"
+      })
+    ),
     "Custom handling for type 'merge' is not allowed; handler ignored"
   )
-  expect_equal(x, list(foo = list(bar = 123, baz = 456), junk = list(bar = 123, baz = 456, bah = 789)))
+  expect_equal(
+    x,
+    list(
+      foo = list(bar = 123, baz = 456),
+      junk = list(bar = 123, baz = 456, bah = 789)
+    )
+  )
 })
 
 test_that("custom str handler is applied", {
-  x <- yaml.load("lickety split", handlers = list("str" = function(x) { "argh!" }))
+  x <- yaml.load(
+    "lickety split",
+    handlers = list("str" = function(x) {
+      "argh!"
+    })
+  )
   expect_equal(x, "argh!")
 })
 
 test_that("handler for unknown type is applied", {
-  x <- yaml.load("!viking pillage", handlers = list(viking = function(x) { paste(x, "the village") }))
+  x <- yaml.load(
+    "!viking pillage",
+    handlers = list(viking = function(x) {
+      paste(x, "the village")
+    })
+  )
   expect_equal(x, "pillage the village")
 })
 
 test_that("custom seq handler is applied", {
-  x <- yaml.load("- 1\n- 2\n- 3", handlers = list(seq = function(x) { as.integer(x) + 3L }))
+  x <- yaml.load(
+    "- 1\n- 2\n- 3",
+    handlers = list(seq = function(x) {
+      as.integer(x) + 3L
+    })
+  )
   expect_equal(x, 4:6)
 })
 
 test_that("custom map handler is applied", {
-  x <- yaml.load("foo: bar", handlers = list(map = function(x) { x$foo <- paste(x$foo, "yarr"); x }))
+  x <- yaml.load(
+    "foo: bar",
+    handlers = list(map = function(x) {
+      x$foo <- paste(x$foo, "yarr")
+      x
+    })
+  )
   expect_equal(x$foo, "bar yarr")
 })
 
 test_that("custom typed seq handler is applied", {
-  x <- yaml.load("!foo\n- 1\n- 2", handlers = list(foo = function(x) { as.integer(x) + 1L }))
+  x <- yaml.load(
+    "!foo\n- 1\n- 2",
+    handlers = list(foo = function(x) {
+      as.integer(x) + 1L
+    })
+  )
   expect_equal(x, 2:3)
 })
 
 test_that("custom typed map handler is applied", {
-  x <- yaml.load("!foo\nuno: 1\ndos: 2", handlers = list(foo = function(x) { x$uno <- "uno"; x$dos <- "dos"; x }))
+  x <- yaml.load(
+    "!foo\nuno: 1\ndos: 2",
+    handlers = list(foo = function(x) {
+      x$uno <- "uno"
+      x$dos <- "dos"
+      x
+    })
+  )
   expect_equal(x, list(uno = "uno", dos = "dos"))
 })
 
@@ -396,11 +549,16 @@ test_that("omaps are loaded when named is false", {
 })
 
 test_that("named opam with duplicate key causes error", {
-  expect_error(yaml.load("--- !omap\n- foo:\n  - 1\n  - 2\n- foo:\n  - 3\n  - 4"))
+  expect_error(yaml.load(
+    "--- !omap\n- foo:\n  - 1\n  - 2\n- foo:\n  - 3\n  - 4"
+  ))
 })
 
 test_that("unnamed omap with duplicate key causes error", {
-  expect_error(yaml.load("--- !omap\n- foo:\n  - 1\n  - 2\n- foo:\n  - 3\n  - 4", FALSE))
+  expect_error(yaml.load(
+    "--- !omap\n- foo:\n  - 1\n  - 2\n- foo:\n  - 3\n  - 4",
+    FALSE
+  ))
 })
 
 test_that("invalid omap causes error", {
@@ -418,7 +576,10 @@ test_that("expressions are not implicitly converted with warning", {
 
 test_that("expressions are explicitly converted without warning", {
   expect_no_warning({
-    x <- yaml.load("!expr |\n  function() \n  {\n    'hey!'\n  }", eval.expr = TRUE)
+    x <- yaml.load(
+      "!expr |\n  function() \n  {\n    'hey!'\n  }",
+      eval.expr = TRUE
+    )
   })
   expect_equal(class(x), "function")
   expect_equal(x(), "hey!")
@@ -452,7 +613,9 @@ test_that("dereferenced aliases have unshared names", {
 })
 
 test_that("multiple anchors are handled", {
-  x <- yaml.load("{foo: &foo {one: 1}, bar: &bar {two: 2}, baz: *foo, quux: *bar}")
+  x <- yaml.load(
+    "{foo: &foo {one: 1}, bar: &bar {two: 2}, baz: *foo, quux: *bar}"
+  )
   expected <- list(
     foo = list(one = 1),
     bar = list(two = 2),

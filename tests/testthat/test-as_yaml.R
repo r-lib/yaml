@@ -58,7 +58,10 @@ test_that("list is converted as omap", {
 })
 
 test_that("nested list is converted as omap", {
-  x <- list(a = list(c = list(e = 1L, f = 2L)), b = list(d = list(g = 3L, h = 4L)))
+  x <- list(
+    a = list(c = list(e = 1L, f = 2L)),
+    b = list(d = list(g = 3L, h = 4L))
+  )
   expected <- "!!omap\n- a: !!omap\n  - c: !!omap\n    - e: 1\n    - f: 2\n- b: !!omap\n  - d: !!omap\n    - g: 3\n    - h: 4\n"
   expect_equal(as.yaml(x, omap = TRUE), expected)
 })
@@ -77,11 +80,16 @@ test_that("multiline string is converted", {
   expect_equal(as.yaml("foo\nbar"), "|-\n  foo\n  bar\n")
   expect_equal(as.yaml(c("foo", "bar\nbaz")), "- foo\n- |-\n  bar\n  baz\n")
   expect_equal(as.yaml(list(foo = "foo\nbar")), "foo: |-\n  foo\n  bar\n")
-  expect_equal(as.yaml(data.frame(a = c("foo", "bar", "baz\nquux"))), "a:\n- foo\n- bar\n- |-\n  baz\n  quux\n")
+  expect_equal(
+    as.yaml(data.frame(a = c("foo", "bar", "baz\nquux"))),
+    "a:\n- foo\n- bar\n- |-\n  baz\n  quux\n"
+  )
 })
 
 test_that("function is converted", {
-  x <- function() { runif(100) }
+  x <- function() {
+    runif(100)
+  }
   expected <- "!expr |\n  function ()\n  {\n      runif(100)\n  }\n"
   result <- as.yaml(x)
   expect_equal(result, expected)
@@ -120,7 +128,10 @@ test_that("custom indent is used", {
 })
 
 test_that("block sequences in mapping context are indented when option is true", {
-  result <- as.yaml(list(foo = list(bar = list("foo", "bar"))), indent.mapping.sequence = TRUE)
+  result <- as.yaml(
+    list(foo = list(bar = list("foo", "bar"))),
+    indent.mapping.sequence = TRUE
+  )
   expect_equal(result, "foo:\n  bar:\n    - foo\n    - bar\n")
 })
 
@@ -211,7 +222,6 @@ test_that("true is emitted properly", {
 })
 
 test_that("false is emitted properly", {
-
   result <- as.yaml(FALSE)
   expect_equal(result, "no\n")
 })
@@ -278,40 +288,52 @@ test_that("custom handler is run for second class", {
 })
 
 test_that("custom handler with verbatim result", {
-  result <- as.yaml(TRUE, handlers = list(
-    logical = function(x) {
-      result <- ifelse(x, "true", "false")
-      class(result) <- "verbatim"
-      return(result)
-    }
-  ))
+  result <- as.yaml(
+    TRUE,
+    handlers = list(
+      logical = function(x) {
+        result <- ifelse(x, "true", "false")
+        class(result) <- "verbatim"
+        return(result)
+      }
+    )
+  )
   expect_equal(result, "true\n")
 })
 
 test_that("custom handler with sequence result", {
-  result <- as.yaml(c(1, 2, 3), handlers = list(
-    numeric = function(x) {
-      x + 1
-    }
-  ))
+  result <- as.yaml(
+    c(1, 2, 3),
+    handlers = list(
+      numeric = function(x) {
+        x + 1
+      }
+    )
+  )
   expect_equal(result, "- 2.0\n- 3.0\n- 4.0\n")
 })
 
 test_that("custom handler with mapping result", {
-  result <- as.yaml(1, handlers = list(
-    numeric = function(x) {
-      list(foo = 1:2, bar = 3:4)
-    }
-  ))
+  result <- as.yaml(
+    1,
+    handlers = list(
+      numeric = function(x) {
+        list(foo = 1:2, bar = 3:4)
+      }
+    )
+  )
   expect_equal(result, "foo:\n- 1\n- 2\nbar:\n- 3\n- 4\n")
 })
 
 test_that("custom handler with function result", {
-  result <- as.yaml(1, handlers = list(
-    numeric = function(x) {
-      function(y) y + 1
-    }
-  ))
+  result <- as.yaml(
+    1,
+    handlers = list(
+      numeric = function(x) {
+        function(y) y + 1
+      }
+    )
+  )
   expected <- "!expr |\n  function (y)\n  y + 1\n"
   expect_equal(result, expected)
 })

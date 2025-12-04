@@ -8,3 +8,5 @@
 ^\.Rproj\.user$
 ^codecov\.yml$
 ^\.claude$
+^[.]?air[.]toml$
+^\.vscode$
