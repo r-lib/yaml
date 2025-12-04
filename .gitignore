@@ -8,3 +8,4 @@ yaml_*.tar.gz
 .Rproj.user
 *.Rproj
 docs
+inst/doc
