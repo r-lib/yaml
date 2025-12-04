@@ -7,13 +7,13 @@
 #'
 #' This function is a convenient wrapper around [as.yaml()].
 #'
-#' @param x the object to be converted
-#' @param file either a character string naming a file or a [connection]
-#' open for writing
-#' @param fileEncoding character string: if non-empty declares the encoding to
-#' be used on a file (not a connection) so the character data can be re-encoded
-#' as they are written.  See [file()].
-#' @param \dots arguments to [as.yaml()]
+#' @param x The object to be converted.
+#' @param file Either a character string naming a file or a [connection]
+#'   open for writing.
+#' @param fileEncoding Character string: if non-empty declares the encoding to
+#'   be used on a file (not a connection) so the character data can be
+#'   re-encoded as they are written. See [file()].
+#' @param \dots Arguments to [as.yaml()].
 #' @author Jeremy Stephens <jeremy.f.stephens@@vumc.org>
 #' @seealso [as.yaml()], [read_yaml()],
 #' [yaml.load_file()]

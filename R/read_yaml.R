@@ -13,19 +13,19 @@
 #' object (via the `summary` function).  If `text` is used, the
 #' default value of `error.label` will be `NULL`.
 #'
-#' @param file either a character string naming a file or a [connection]
-#' open for writing
-#' @param fileEncoding character string: if non-empty declares the encoding
-#' used on a file (not a connection) so the character data can be re-encoded.
-#' See [file()].
-#' @param text character string: if `file` is not supplied and this is,
-#' then data are read from the value of `text` via a text connection.
-#' Notice that a literal string can be used to include (small) data sets within
-#' R code.
-#' @param error.label a label to prepend to error messages (see Details).
-#' @param readLines.warn logical (default:TRUE) suppress warnings from
-#' readLines used inside read_yaml
-#' @param ... arguments to pass to [yaml.load()]
+#' @param file Either a character string naming a file or a [connection]
+#'   open for writing.
+#' @param fileEncoding Character string: if non-empty declares the encoding
+#'   used on a file (not a connection) so the character data can be re-encoded.
+#'   See [file()].
+#' @param text Character string: if `file` is not supplied and this is,
+#'   then data are read from the value of `text` via a text connection.
+#'   Notice that a literal string can be used to include (small) data sets
+#'   within R code.
+#' @param error.label A label to prepend to error messages (see Details).
+#' @param readLines.warn Logical (default: TRUE). Suppress warnings from
+#'   readLines used inside read_yaml.
+#' @param ... Arguments to pass to [yaml.load()].
 #' @return If the root YAML object is a map, a named list or list with an
 #' attribute of 'keys' is returned.  If the root object is a sequence, a list
 #' or vector is returned, depending on the contents of the sequence.  A vector

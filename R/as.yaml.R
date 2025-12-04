@@ -39,20 +39,20 @@
 #' tag on an incompatible data type (like \dQuote{!seq 1.0}), errors will occur
 #' when you try to deserialize the document.
 #'
-#' @param x the object to be converted
-#' @param line.sep the line separator character(s) to use
-#' @param indent the number of spaces to use for indenting
-#' @param omap determines whether or not to convert a list to a YAML omap; see
-#' Details
-#' @param column.major determines how to convert a data.frame; see Details
-#' @param unicode determines whether or not to allow unescaped unicode
-#' characters in output
-#' @param precision number of significant digits to use when formatting numeric
-#' values
-#' @param indent.mapping.sequence determines whether or not to indent sequences
-#' in mapping context
-#' @param handlers named list of custom handler functions for R objects; see
-#' Details
+#' @param x The object to be converted.
+#' @param line.sep The line separator character(s) to use.
+#' @param indent The number of spaces to use for indenting.
+#' @param omap Determines whether or not to convert a list to a YAML omap; see
+#'   Details.
+#' @param column.major Determines how to convert a data.frame; see Details.
+#' @param unicode Determines whether or not to allow unescaped unicode
+#'   characters in output.
+#' @param precision Number of significant digits to use when formatting numeric
+#'   values.
+#' @param indent.mapping.sequence Determines whether or not to indent sequences
+#'   in mapping context.
+#' @param handlers Named list of custom handler functions for R objects; see
+#'   Details.
 #' @return Returns a YAML string which can be loaded using
 #' [yaml.load()] or copied into a file for external use.
 #' @author Jeremy Stephens <jeremy.f.stephens@@vumc.org>

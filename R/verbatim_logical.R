@@ -6,7 +6,7 @@
 #' Pass this function to [`as.yaml()`][as.yaml] as part of the
 #' `handler` argument list like `list(logical = verbatim_logical)`.
 #'
-#' @param x logical vector to convert to `true`/`false`.
+#' @param x Logical vector to convert to `true`/`false`.
 #' @return Returns a vector of strings of either `true` or `false` of
 #' class `verbatim`.
 #' @author Charles Dupont and James Goldie (jimjam-slam)

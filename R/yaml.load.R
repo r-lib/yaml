@@ -56,23 +56,23 @@
 #' the YAML 1.1 specification.
 #'
 #' @aliases yaml.load yaml.load_file
-#' @param string the YAML string to be parsed
-#' @param as.named.list whether or not to return a named list for maps (TRUE by
-#' default)
-#' @param handlers named list of custom handler functions for YAML types (see
-#' Details)
-#' @param input a filename or connection; if `input` is a filename, that
-#' file must be encoded in UTF-8
-#' @param error.label a label to prepend to error messages (see Details)
-#' @param eval.expr whether or not to evaluate expressions found in the YAML
-#' document (see Details)
-#' @param merge.precedence behavior of precedence during map merges (see
-#' Details)
-#' @param merge.warning whether or not to warn about ignored key/value pairs
-#' during map merges
-#' @param readLines.warn logical (default:TRUE) suppress warnings from
-#' readLines used inside read_yaml
-#' @param ...  arguments to pass to yaml.load
+#' @param string The YAML string to be parsed.
+#' @param as.named.list Whether or not to return a named list for maps (TRUE by
+#'   default).
+#' @param handlers Named list of custom handler functions for YAML types (see
+#'   Details).
+#' @param input A filename or connection; if `input` is a filename, that
+#'   file must be encoded in UTF-8.
+#' @param error.label A label to prepend to error messages (see Details).
+#' @param eval.expr Whether or not to evaluate expressions found in the YAML
+#'   document (see Details).
+#' @param merge.precedence Precedence behavior during map merges (see
+#'   Details).
+#' @param merge.warning Whether or not to warn about ignored key/value pairs
+#'   during map merges.
+#' @param readLines.warn Logical (default: TRUE). Suppress warnings from
+#'   readLines used inside read_yaml.
+#' @param ... Arguments to pass to yaml.load.
 #' @return If the root YAML object is a map, a named list or list with an
 #' attribute of 'keys' is returned.  If the root object is a sequence, a list
 #' or vector is returned, depending on the contents of the sequence.  A vector
