@@ -3,15 +3,15 @@ Package: yaml
 Title: Methods to Convert R Data to YAML and Back
 Version: 2.3.11
 Authors@R: c(
-    person("Shawn", "Garbett", , "shawn.garbett@vumc.org", role = c("cre", "ctb"),
+    person("Hadley", "Wickham", role = "cre",
+           comment = c(ORCID = "0000-0003-4757-117X")),
+    person("Shawn", "Garbett", , "shawn.garbett@vumc.org", role = "ctb",
            comment = c(ORCID = "0000-0003-4079-5621")),
     person("Jeremy", "Stephens", role = c("aut", "ctb")),
     person("Kirill", "Simonov", role = "aut"),
     person("Yihui", "Xie", role = "ctb",
            comment = c(ORCID = "0000-0003-0645-5666")),
     person("Zhuoer", "Dong", role = "ctb"),
-    person("Hadley", "Wickham", role = "ctb",
-           comment = c(ORCID = "0000-0003-4757-117X")),
     person("Jeffrey", "Horner", role = "ctb"),
     person("reikoch", role = "ctb"),
     person("Will", "Beasley", role = "ctb",
@@ -31,3 +31,4 @@ BugReports: https://github.com/lib/r-yaml/issues
 Suggests: 
     RUnit
 Encoding: UTF-8
+RoxygenNote: 7.3.3
