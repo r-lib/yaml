@@ -1,4 +1,4 @@
-url: https://r-yaml.r-lib.org
+url: https://yaml.r-lib.org
 
 template:
   package: tidytemplate
