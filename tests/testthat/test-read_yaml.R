@@ -23,10 +23,7 @@ test_that("reading from text works", {
 })
 
 test_that("reading a complicated document works", {
-  filename <- system.file(
-    file.path("tests", "files", "test.yml"),
-    package = "yaml"
-  )
+  filename <- test_path("test.yml")
   x <- read_yaml(filename)
   expected <- list(
     foo = list(one = 1, two = 2),
