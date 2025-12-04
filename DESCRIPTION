@@ -3,7 +3,7 @@ Package: yaml
 Title: Methods to Convert R Data to YAML and Back
 Version: 2.3.11.9000
 Authors@R: c(
-    person("Hadley", "Wickham", role = "cre",
+    person("Hadley", "Wickham", , "hadley@posit.co", role = "cre",
            comment = c(ORCID = "0000-0003-4757-117X")),
     person("Shawn", "Garbett", , "shawn.garbett@vumc.org", role = "ctb",
            comment = c(ORCID = "0000-0003-4079-5621")),
