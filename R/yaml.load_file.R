@@ -1,3 +1,5 @@
+#' @export
+#' @rdname yaml.load
 `yaml.load_file` <-
 function(input, error.label, readLines.warn=TRUE, ...) {
   if (missing(error.label)) {
