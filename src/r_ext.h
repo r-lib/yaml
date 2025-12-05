@@ -11,7 +11,7 @@
 #include <errno.h>
 #include <limits.h>
 #include "R.h"
-#include "Rdefines.h"
+#include "Rinternals.h"
 #include "Rversion.h"
 #include "R_ext/Rdynload.h"
 #include "R_ext/Parse.h"
