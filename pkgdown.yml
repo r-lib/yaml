@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   yaml: yaml.html
-last_built: 2025-12-04T22:56Z
+last_built: 2025-12-05T16:05Z
 urls:
   reference: https://yaml.r-lib.org/reference
   article: https://yaml.r-lib.org/articles

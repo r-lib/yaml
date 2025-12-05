@@ -276,7 +276,7 @@ cat(as.yaml(
   Sys.Date(),
   handlers = list(Date = function(x) format(x, "%Y/%m/%d"))
 ))
-#> 2025/12/04
+#> 2025/12/05
 ```
 
 ### YAML 1.2 logical handling

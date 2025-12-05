@@ -148,7 +148,7 @@ Jeremy Stephens <jeremy.f.stephens@vumc.org>
   as.yaml(Sys.time(), handlers = list(
     POSIXct = function(x) format(x, "%Y-%m-%d")
   ))
-#> [1] "'2025-12-04'\n"
+#> [1] "'2025-12-05'\n"
 
   # custom handler with verbatim output to change how logical vectors are
   # emitted
