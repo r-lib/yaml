@@ -1,5 +1,7 @@
 # yaml (development version)
 
+* Fixes for C API compliance.
+
 * Switched from `CHANGELOG` to `NEWS.md`.
 
 # yaml 2.3.10
